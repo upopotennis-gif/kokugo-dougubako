@@ -86,6 +86,38 @@ a:focus-visible{outline:3px solid var(--fuji);outline-offset:2px;border-radius:6
 
 footer{border-top:1px solid var(--line);color:var(--faint);font-size:.8rem;padding:20px 0 40px}
 footer p{margin:.2em 0}
+
+/* ===== スマホ（〜719px）：読む字を大きく、押す所を広く ===== */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+@media (max-width:719px){
+  body{font-size:17px;line-height:1.8}
+  .mast .wrap{padding-top:28px;padding-bottom:22px}
+  .kicker{font-size:.85rem}
+  .card h3 a{display:block;padding:6px 0;margin:-6px 0}
+  .toc small{font-size:.85rem}
+  h1{font-size:2.15rem;letter-spacing:.08em;margin:.15em 0 .3em}
+  .intro{font-size:1rem}
+  /* 目次は横に並べてスワイプ。1行に収め、押しやすい高さに */
+  .toc{flex-wrap:nowrap;overflow-x:auto;margin:18px -16px 0;padding:2px 16px 6px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .toc::-webkit-scrollbar{display:none}
+  .toc a{flex:none;min-height:44px;align-items:center;font-size:.95rem;padding:8px 14px}
+  .sec{padding-top:28px;scroll-margin-top:8px}
+  .sec-head{gap:10px}
+  .sec-head .num{font-size:1.6rem}
+  .sec-head h2{font-size:1.35rem}
+  .sec-head p{font-size:.9rem}
+  .card{padding:16px 16px 14px;border-radius:14px}
+  .card h3{font-size:1.25rem}
+  .card .lead{font-size:1rem}
+  .card ul{font-size:.94rem}
+  .card .note{font-size:.88rem}
+  /* 「ひらく」は指で押しやすい大きなボタンに。URLの断片は隠す */
+  .card .go{border-top:0;padding-top:4px}
+  .card .go .path{display:none}
+  .card .go a{justify-content:center;min-height:48px;border-radius:10px;background:var(--fuji-bg);font-size:1rem}
+  .card .go a:active{filter:brightness(.95)}
+  footer{font-size:.88rem}
+}
 </style>
 </head>
 <body>
