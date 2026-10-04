@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="description" content="国語科の先生向けに公開しているページ（文献案内・研究会カレンダー・実践報告・文章指導の道具）の一覧">
+<title>国語科の道具箱</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#efede6; --paper:#fbfaf6; --ink:#23242a; --soft:#62636b; --faint:#8b8c93; --line:#d6d3c8;
+  --fuji:#5b4a8a; --fuji-bg:#ebe7f3; --rule:#b9465a; --shadow:rgba(35,36,42,.08);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#16161b; --paper:#1f1f26; --ink:#ebe9e2; --soft:#a9a8b0; --faint:#7d7c85; --line:#34343f;
+    --fuji:#b4a5e0; --fuji-bg:#2a2540; --rule:#e2828f; --shadow:rgba(0,0,0,.4);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#16161b; --paper:#1f1f26; --ink:#ebe9e2; --soft:#a9a8b0; --faint:#7d7c85; --line:#34343f;
+  --fuji:#b4a5e0; --fuji-bg:#2a2540; --rule:#e2828f; --shadow:rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:'Zen Kaku Gothic New','Hiragino Sans',system-ui,sans-serif;line-height:1.85;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:880px;margin:0 auto;padding:0 16px}
+
+/* 見出し：原稿用紙の升目を背景に */
+.mast{position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:var(--paper)}
+.mast .wrap{padding-top:48px;padding-bottom:36px;position:relative}
+.mast .grid{position:absolute;inset:0;pointer-events:none;opacity:.55;
+  background-image:
+    repeating-linear-gradient(0deg,transparent 0 31px,var(--line) 31px 32px),
+    repeating-linear-gradient(90deg,transparent 0 31px,var(--line) 31px 32px);
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 55%,#000 100%);
+          mask-image:linear-gradient(90deg,transparent 0,#000 55%,#000 100%)}
+.kicker{margin:0;font-size:.8rem;letter-spacing:.2em;color:var(--fuji);font-weight:700}
+h1{position:relative;margin:.2em 0 .25em;font-family:'Zen Old Mincho',serif;font-weight:900;
+  font-size:clamp(2.1rem,1.5rem + 3vw,3.2rem);letter-spacing:.14em;line-height:1.25}
+h1 .red{color:var(--rule)}
+.intro{position:relative;margin:0;max-width:34em;color:var(--soft);font-size:.95rem}
+
+/* 目次 */
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0;position:relative}
+.toc a{display:inline-flex;align-items:baseline;gap:.5em;text-decoration:none;font-size:.88rem;font-weight:500;
+  padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:var(--bg)}
+.toc a:hover,.toc a:focus-visible{border-color:var(--fuji);color:var(--fuji)}
+.toc .num{font-family:'Zen Old Mincho',serif;color:var(--fuji);font-weight:700}
+.toc small{color:var(--faint);font-size:.75rem}
+
+main{padding:12px 0 40px}
+.sec{padding-top:36px}
+.sec-head{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px}
+.sec-head .num{font-family:'Zen Old Mincho',serif;font-weight:900;font-size:2rem;line-height:1;color:var(--fuji);
+  padding-top:4px;min-width:1.6em}
+.sec-head h2{margin:0;font-family:'Zen Old Mincho',serif;font-weight:700;font-size:1.45rem;letter-spacing:.08em;line-height:1.4}
+.sec-head p{margin:0;color:var(--soft);font-size:.86rem}
+
+.cards{display:grid;gap:14px}
+@media (min-width:720px){.cards{grid-template-columns:1fr 1fr}}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:18px 18px 12px;
+  box-shadow:0 2px 10px var(--shadow);display:flex;flex-direction:column;position:relative}
+.card::before{content:"";position:absolute;left:0;top:18px;bottom:18px;width:3px;border-radius:0 3px 3px 0;background:var(--rule);opacity:.85}
+.card h3{margin:0 0 4px;font-family:'Zen Old Mincho',serif;font-weight:700;font-size:1.2rem;line-height:1.45;letter-spacing:.04em}
+.card h3 a{text-decoration:none}
+.card h3 a:hover{color:var(--fuji)}
+.card .lead{margin:0 0 8px;font-size:.92rem}
+.card ul{margin:0 0 8px;padding:0;list-style:none;font-size:.84rem;color:var(--soft)}
+.card li{position:relative;padding-left:1.1em;line-height:1.65;margin:.25em 0}
+.card li::before{content:"";position:absolute;left:.15em;top:.68em;width:.42em;height:.42em;border:1.5px solid var(--fuji);border-radius:50%}
+.card .note{margin:0 0 8px;font-size:.78rem;color:var(--faint);line-height:1.6;background:var(--bg);border-radius:8px;padding:6px 10px}
+.card .go{margin:auto 0 0;padding-top:8px;border-top:1px dashed var(--line)}
+.card .go a{display:flex;justify-content:space-between;align-items:center;gap:10px;text-decoration:none;padding:6px 2px;font-size:.85rem}
+.card .go .path{color:var(--faint);font-family:ui-monospace,Menlo,monospace;font-size:.74rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.card .go .arrow{color:var(--fuji);font-weight:700;white-space:nowrap}
+.card .go a:hover .arrow{text-decoration:underline}
+a:focus-visible{outline:3px solid var(--fuji);outline-offset:2px;border-radius:6px}
+
+footer{border-top:1px solid var(--line);color:var(--faint);font-size:.8rem;padding:20px 0 40px}
+footer p{margin:.2em 0}
+</style>
+</head>
+<body>
+<header class="mast">
+  <div class="grid" aria-hidden="true"></div>
+  <div class="wrap">
+    <p class="kicker">FOR TEACHERS</p>
+    <h1>国語科の<span class="red">道具箱</span></h1>
+    <p class="intro">国語の先生向けに公開しているページをまとめました。どれもアカウント登録なしで、リンクを開けばすぐ使えます。</p>
+    <nav class="toc" aria-label="目次">
+<a href="#kenkyu"><span class="num">01</span>研究・情報収集<small>2</small></a>
+<a href="#jissen"><span class="num">02</span>実践報告<small>1</small></a>
+<a href="#bunsho"><span class="num">03</span>文章指導の道具<small>2</small></a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<section id="kenkyu" class="sec">
+  <header class="sec-head"><span class="num">01</span><div><h2>研究・情報収集</h2><p>国語科教育の文献と、学会・研究会の予定</p></div></header>
+  <div class="cards"><article class="card">
+  <h3><a href="https://upopotennis-gif.github.io/seika-tenbou/">成果と展望 文献案内</a></h3>
+  <p class="lead">『国語科教育学研究の成果と展望Ⅱ・Ⅲ』の各節末に挙がった参考文献、約5,500件を章ごとに引ける一覧。</p>
+  <ul><li>題・著者・キーワードで検索。「無料で読めるものだけ」に絞れる</li><li>CiNii・J-STAGE・機関リポジトリの所在と、無料PDFへの案内</li><li>選んだ文献をリストにしてコピーできる</li></ul>
+  <p class="note">書誌は本の文字認識から作ったため、人名などに誤りが残っていることがあります。</p>
+  <p class="go"><a href="https://upopotennis-gif.github.io/seika-tenbou/" aria-label="成果と展望 文献案内をひらく"><span class="path">…/seika-tenbou</span><span class="arrow">ひらく →</span></a></p>
+</article>
+<article class="card">
+  <h3><a href="https://upopotennis-gif.github.io/kokugo-kenkyukai-info/">国語科 学会・研究会カレンダー</a></h3>
+  <p class="lead">国語科教育に関わる学会・研究会の、これから開かれる大会・例会・研修会の一覧。</p>
+  <ul><li>早稲田大学国語教育学会・全国大学国語教育学会・日本国語教育学会など9団体</li><li>団体別・開催日順に並ぶ。週2回（日・水）自動で更新</li><li>各カードに公式サイトなどの情報源リンクつき</li></ul>
+  <p class="note">申込や詳細は、必ず各団体の告知ページで確かめてください。</p>
+  <p class="go"><a href="https://upopotennis-gif.github.io/kokugo-kenkyukai-info/" aria-label="国語科 学会・研究会カレンダーをひらく"><span class="path">…/kokugo-kenkyukai-info</span><span class="arrow">ひらく →</span></a></p>
+</article></div>
+</section>
+<section id="jissen" class="sec">
+  <header class="sec-head"><span class="num">02</span><div><h2>実践報告</h2><p>授業や教材づくりで分かったことのまとめ</p></div></header>
+  <div class="cards"><article class="card">
+  <h3><a href="https://upopotennis-gif.github.io/kobun-dojo/report.html">正解だけが長かった</a></h3>
+  <p class="lead">古文文法の4択教材で、生徒アンケートから「正解の選択肢だけが長い」偏りを見つけて直した経過の報告。</p>
+  <ul><li>高2・88件のアンケート結果と、「今後も使いたい」との関係</li><li>1,810問を検査：正解が単独で最長の問題が46.1%</li><li>475問の誤答の書き直しと、ほかの教材にも当てはまる教訓</li></ul>
+  
+  <p class="go"><a href="https://upopotennis-gif.github.io/kobun-dojo/report.html" aria-label="正解だけが長かったをひらく"><span class="path">…/kobun-dojo/report.html</span><span class="arrow">ひらく →</span></a></p>
+</article></div>
+</section>
+<section id="bunsho" class="sec">
+  <header class="sec-head"><span class="num">03</span><div><h2>文章指導の道具</h2><p>志望理由書や論文の指導に使うページ</p></div></header>
+  <div class="cards"><article class="card">
+  <h3><a href="https://upopotennis-gif.github.io/tensaku-gemini/">出願書類の添削室（Gemini版）</a></h3>
+  <p class="lead">志望理由書・活動報告書・推薦書の添削を頼む依頼文を作り、学校のGeminiに貼って使うページ。</p>
+  <ul><li>大学・学部を選ぶと、アドミッション・ポリシーの要点を依頼文に入れる</li><li>観点別の評価・赤ペン・書き直し例・生徒への質問で返すよう頼む</li><li>生徒の氏名は〇〇に伏せてから依頼文に入れる</li></ul>
+  <p class="note">このページ自体は何も送信しません。Geminiへ貼るのは使う人の操作です。</p>
+  <p class="go"><a href="https://upopotennis-gif.github.io/tensaku-gemini/" aria-label="出願書類の添削室（Gemini版）をひらく"><span class="path">…/tensaku-gemini</span><span class="arrow">ひらく →</span></a></p>
+</article>
+<article class="card">
+  <h3><a href="https://upopotennis-gif.github.io/sotsuron-akapen/">卒論 赤ペンチェック</a></h3>
+  <p class="lead">卒業論文のWordファイルを入れると、書式と論文のきまりに合っているかを赤ペンで返すページ。</p>
+  <ul><li>余白・字数・ページ数・見出し・図表・文献の書き方を◯△✕で判定</li><li>生徒は1本ずつ自分で確認、先生はクラス分まとめて一覧にできる</li><li>赤ペンをPDFで保存。まとめたときはZIPとCSVで書き出し</li></ul>
+  <p class="note">ファイルはブラウザの中だけで読み、どこにも送りません。判定の基準は、ある高校の卒論フォーマットに合わせています。</p>
+  <p class="go"><a href="https://upopotennis-gif.github.io/sotsuron-akapen/" aria-label="卒論 赤ペンチェックをひらく"><span class="path">…/sotsuron-akapen</span><span class="arrow">ひらく →</span></a></p>
+</article></div>
+</section>
+</main>
+<footer class="wrap">
+  <p>掲載 5 ページ　／　2026年10月4日 更新</p>
+  <p>載せているのは、インターネットで誰でも開けるように公開しているページだけです。</p>
+</footer>
+</body>
+</html>
